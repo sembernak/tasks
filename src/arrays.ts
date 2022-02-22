@@ -143,6 +143,5 @@ export function injectPositive(values: number[]): number[] {
     );
     const submit = [...values];
     submit.splice(location + 1, 0, sum);
-    console.log([...values]);
     return submit;
 }
