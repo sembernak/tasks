@@ -1,4 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Console } from "console";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { arrayBuffer } from "stream/consumers";
 
 /**
