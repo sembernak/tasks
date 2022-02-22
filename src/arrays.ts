@@ -9,6 +9,7 @@ import { arrayBuffer } from "stream/consumers";
  */
 export function bookEndList(numbers: number[]): number[] {
     if (numbers.length < 1) {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const bookEnd = numbers.filter((numb: number): boolean => false);
         return bookEnd;
     }
