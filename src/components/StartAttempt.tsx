@@ -6,21 +6,33 @@ export function StartAttempt(): JSX.Element {
     const [taking, reTake] = useState<boolean>(false);
 
     function takeTest(): void {
-        reTake(true);
-        attempt(attemptsNum - 1);
+        if (!taking) {
+            reTake(true);
+            attempt(attemptsNum - 1);
+        }
     }
 
     return (
         <div>
-            {!taking && attemptsNum > 0 && (
-                <Button onClick={takeTest}>Start Quiz</Button>
-            )}
-            {!taking && (
-                <Button onClick={() => attempt(attemptsNum + 1)}>
+            <Button disabled={taking || attemptsNum === 0} onClick={takeTest}>
+                Start Quiz
+            </Button>
+            <div>
+                <Button
+                    disabled={taking}
+                    onClick={
+                        !taking
+                            ? () => attempt(attemptsNum + 1)
+                            : () => attempt(attemptsNum)
+                    }
+                >
                     Mulligan
                 </Button>
-            )}
-            {taking && <Button onClick={() => reTake(false)}>Stop Quiz</Button>}
+                <span>Attempts left: {attemptsNum}</span>
+            </div>
+            <Button disabled={!taking} onClick={() => reTake(false)}>
+                Stop Quiz
+            </Button>
         </div>
     );
 }
