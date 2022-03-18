@@ -29,6 +29,11 @@ function App(): JSX.Element {
             <Quizzer></Quizzer>
             <hr></hr>
             <img id="mockup-img" src={mockup}></img>
+            <ul style={{ width: 300 }}>
+                <p>Features Added:</p>
+                <li>Quiz Title, Desc</li>
+                <li>Editing</li>
+            </ul>
             <hr></hr>
             <CheckAnswer expectedAnswer="42"></CheckAnswer>
             <hr></hr>
